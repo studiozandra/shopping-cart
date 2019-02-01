@@ -4,13 +4,24 @@ body{
 
 #shoppingCart{
     background-color: white;
-    
+    width: 80%;
+
 }
 
 #cartTop{
     background-color: #f5a623;
+    color: #a76a05;
 }
 
 #productsList{
+    color: #4a4a4a;
 
+}
+
+.productDesc{
+    color: #dcdcdc;
+}
+
+#subtotal{
+    color: #4a4a4a; 
 }
