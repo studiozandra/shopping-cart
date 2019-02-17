@@ -46,40 +46,60 @@ var cartContents =
 var subTotal = 0;
 var productsEle = document.getElementById("productsList");
 
-for (var i = 0; i < cartContents.length; i++) {
+function populate(){
+    for (var i = 0; i < cartContents.length; i++) {
     
+        var shoppingCart = document.createElement('div');
+        shoppingCart.className = 'spacer';
+        shoppingCart.style.borderTop = '1px solid lightgrey';
+        productsEle.appendChild(shoppingCart);
+        
+    
+        var shopItemImg = document.createElement('img');
+        shopItemImg.id = 'imagePlaceholder' + i;
+        shopItemImg.className = 'prodImg'
+        shopItemImg.style.border = '25px solid lightgrey';
+        shopItemImg.style.float = 'left';
+        shoppingCart.appendChild(shopItemImg);
+    
+        var prodName = document.createElement('div');
+        prodName.className = 'nameDescr';
+        shoppingCart.appendChild(prodName);
+    
+        var itemHead = document.createElement('h3');
+        itemHead.className = 'itemHeader';
+        itemHead.innerHTML = cartContents[i].product;
+        prodName.appendChild(itemHead);
+    
+        var itemBoxDescr = document.createElement('div');
+        itemBoxDescr.className = 'itemDescr';
+        itemBoxDescr.innerHTML = cartContents[i].description;
+        prodName.appendChild(itemBoxDescr);
+    
+        var itemBoxPrice = document.createElement('div');
+        itemBoxPrice.className = 'itemPrice';
+        itemBoxPrice.innerHTML = cartContents[i].price;
+        itemBoxPrice.style.float = 'right';
+        itemBoxDescr.appendChild(itemBoxPrice);
+    
+        
+    
+        subTotal += cartContents[i].price;
+    
+    }
+
     var shoppingCart = document.createElement('div');
     shoppingCart.className = 'itemBox';
     shoppingCart.style.borderTop = '1px solid lightgrey';
     productsEle.appendChild(shoppingCart);
-    
 
-    var shopItemImg = document.createElement('img');
-    shopItemImg.id = 'itemImg' + i;
-    shopItemImg.className = 'prodImg'
-    shopItemImg.style.float = 'left';
-    shoppingCart.appendChild(shopItemImg);
+    var newSubTot = document.createElement('div');
+    var subTotalEle = document.getElementById("subtotal");
+    newSubTot.innerHTML = '$' + subTotal;
+    newSubTot.style.float = 'right';
+    subTotalEle.appendChild(newSubTot);
 
-    var prodDiv = document.createElement('div');
-    prodDiv.className = 'nameDescr';
-    shoppingCart.appendChild(prodDiv);
-
-    var itemBoxHead = document.createElement('h3');
-    itemBoxHead.className = 'itemHeader';
-    itemBoxHead.innerHTML = cartContents[i].product;
-    prodDiv.appendChild(itemBoxHead);
-
-    var itemBoxDescr = document.createElement('div');
-    itemBoxDescr.className = 'itemDescr';
-    itemBoxDescr.innerHTML = cartContents[i].description;
-    prodDiv.appendChild(itemBoxDescr);
-
-    var itemBoxPrice = document.createElement('div');
-    itemBoxPrice.className = 'itemPrice';
-    itemBoxPrice.innerHTML = cartContents[i].price;
-    shoppingCart.appendChild(itemBoxPrice);
-
-    subTotal += cartContents[i].price;
-
-    
 }
+
+populate();
+

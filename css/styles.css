@@ -1,31 +1,51 @@
 body{
+    font-family: 'Lato', sans-serif;
     align-content: center;
-    width: 50%;
+    width: 90%;
 }
 
 #shoppingCart{
     background-color: white;
-    width: 100%;
-    padding-inline-start: 33%;
+    
+    /* padding-inline-start: 33%; */
 
 }
 
 #cartTop{
     background-color: #f5a623;
     color: #a76a05;
+    font-family: 'Lato', sans-serif;
+    font-size: larger;
+    padding-inline-start: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: inline-flexbox;
+
 }
 
 #productsList{
     color: #4a4a4a;
     width: 80%;
     padding-inline-start: 10%;
+    padding-top: 2%;
+    display: inline-flexbox;
 
 }
+
 
 .productDesc{
     color: #dcdcdc;
 }
 
 #subtotal{
-    color: #4a4a4a; 
+    color: #4a4a4a;
+    width: 80%;
+    padding-inline-start: 10%;
+    padding-top: 2%;
+    display: inline-flexbox; 
+}
+
+.nameDescr{
+    padding-inline-start: 10%;
+    
 }
