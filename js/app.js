@@ -36,14 +36,50 @@ var cartContents =
 
 // image, product, description, price
 
-document.getElementById('imagePlaceholder').src = '';
+// document.getElementById('imagePlaceholder1').src ='images/imagePlaceholder.png';
+// document.getElementById('imagePlaceholder2').src = '';
+// document.getElementById('imagePlaceholder3').src = '';
+// document.getElementById('imagePlaceholder4').src = '';
+// document.getElementById('imagePlaceholder5').src = '';
+// document.getElementById('imagePlaceholder6').src = '';
 
-document.getElementById('imagePlaceholder').src = '';
+var subTotal = 0;
+var productsEle = document.getElementById("productsList");
 
-document.getElementById('imagePlaceholder').src = '';
+for (var i = 0; i < cartContents.length; i++) {
+    
+    var shoppingCart = document.createElement('div');
+    shoppingCart.className = 'itemBox';
+    shoppingCart.style.borderTop = '1px solid lightgrey';
+    productsEle.appendChild(shoppingCart);
+    
 
-document.getElementById('imagePlaceholder').src = '';
+    var shopItemImg = document.createElement('img');
+    shopItemImg.id = 'itemImg' + i;
+    shopItemImg.className = 'prodImg'
+    shopItemImg.style.float = 'left';
+    shoppingCart.appendChild(shopItemImg);
 
-document.getElementById('imagePlaceholder').src = '';
+    var prodDiv = document.createElement('div');
+    prodDiv.className = 'nameDescr';
+    shoppingCart.appendChild(prodDiv);
 
-document.getElementById('imagePlaceholder').src = '';
+    var itemBoxHead = document.createElement('h3');
+    itemBoxHead.className = 'itemHeader';
+    itemBoxHead.innerHTML = cartContents[i].product;
+    prodDiv.appendChild(itemBoxHead);
+
+    var itemBoxDescr = document.createElement('div');
+    itemBoxDescr.className = 'itemDescr';
+    itemBoxDescr.innerHTML = cartContents[i].description;
+    prodDiv.appendChild(itemBoxDescr);
+
+    var itemBoxPrice = document.createElement('div');
+    itemBoxPrice.className = 'itemPrice';
+    itemBoxPrice.innerHTML = cartContents[i].price;
+    shoppingCart.appendChild(itemBoxPrice);
+
+    subTotal += cartContents[i].price;
+
+    
+}
